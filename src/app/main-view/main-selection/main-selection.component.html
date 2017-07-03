@@ -1,11 +1,15 @@
 <h3>Que voulez vous manger ?</h3>
 <ul>
     <li>
+      <button (click)="displayTacosFormulas()">
         <img src="assets/tacos.png" alt="tacos">
-        <span>Tacos</span>
+      </button>
+      <span>Tacos</span>
     </li>
     <li>
-        <img src="assets/burger.png" alt="burger">
+      <button (click)="displayBurgersFormulas()">
+        <img src="assets/burger.png" alt="tacos">
+      </button>
         <span>Burger</span>
     </li>
     <li>
@@ -16,4 +20,7 @@
         <img src="assets/menu.png" alt="menu">
         <span>Menu</span>
     </li>
+</ul>
+<ul>
+  <li *ngFor="let formula of selectedFormulas">{{formula.getName()}}</li>
 </ul>
