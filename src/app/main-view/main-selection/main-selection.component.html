@@ -1,26 +1,25 @@
-<h3>Que voulez vous manger ?</h3>
-<ul>
-    <li>
-      <button (click)="displayTacosFormulas()">
-        <img src="assets/tacos.png" alt="tacos">
-      </button>
-      <span>Tacos</span>
-    </li>
-    <li>
-      <button (click)="displayBurgersFormulas()">
-        <img src="assets/burger.png" alt="tacos">
-      </button>
-        <span>Burger</span>
-    </li>
-    <li>
-        <img src="assets/pates.png" alt="pates">
-        <span>Pates</span>
-    </li>
-    <li>
-        <img src="assets/menu.png" alt="menu">
-        <span>Menu</span>
-    </li>
-</ul>
-<ul>
-  <li *ngFor="let formula of selectedFormulas">{{formula.getName()}}</li>
-</ul>
+
+<div class="selection-section">
+    <h4>QUE VOULEZ VOUS MANGER ?</h4>
+    <ul class="horizontal-list">
+        <li class="clickable-food" [ngClass]="{'setOpaque': isFoodSelected('Tacos')}" (click)="selectFood('Tacos')">
+            <img src="assets/tacos.png" alt="tacos">
+            <span class="clickable-food-label">Tacos</span>
+        </li>
+        <li class="clickable-food" [ngClass]="{'setOpaque': isFoodSelected('Burger')}" (click)="selectFood('Burger')">
+            <img src="assets/burger.png" alt="tacos">
+            <span class="clickable-food-label">Burger</span>
+        </li>
+        <li class="clickable-food" [ngClass]="{'setOpaque': isFoodSelected('Pates')}" (click)="selectFood('Pates')">
+            <img src="assets/pates.png" alt="pates">
+            <span class="clickable-food-label">Pates</span>
+        </li>
+        <li class="clickable-food" [ngClass]="{'setOpaque': isFoodSelected('Menu')}" (click)="selectFood('Menu')">
+            <img src="assets/menu.png" alt="menu">
+            <span class="clickable-food-label">Menu</span>
+        </li>
+    </ul>
+</div>
+
+
+<tacos-selection *ngIf="getSelectedFood() === 'Tacos'"></tacos-selection>

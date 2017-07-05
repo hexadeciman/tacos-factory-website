@@ -113,19 +113,40 @@ const tacosProducts =
   new Product
   (
     "Le poulet",
-    "Filet de poulet, tomates, oignons, c'est très bon!",
+    "Filet de poulet, tomates, oignons rouges, tranche de cheddar, sauces au choix",
     11
   ),
   new Product
   (
     "Le curry",
-    "Filet de poulet au curry (bim bim), tomates, oignons, c'est très bonnard t'as vu!",
+    "Filet de poulet mariné façon curry (curcuma, coriandre, fenugrec, cumin, poivre), " +
+    "tomates, oignons rouges, tranche de cheddar, sauces au choix",
     12
   ),
   new Product
   (
-    "Le Thai",
-    "Filet de poulet mariné façon thai (du lourd!), tomates, oignons, c'est très bon!",
+    "Le Thaï",
+    "Filet de poulet mariné façon thaï (épice, sel, ail, coriandre, piment, cumin), tomates, " +
+    "oignons rouges, tranche de cheddar, sauces au choix",
+    12
+  ),
+  new Product
+  (
+    "Le Steak",
+    "Steak haché de boeuf (165g), tomates, oignons rouges, tranche de cheddar, sauces au choix",
+    12
+  ),
+  new Product
+  (
+    "Le Sega",
+    "Steak haché de boeuf (165g) assaisonné (sel, poivre noir, oignons rouges, coriandre), " +
+    "tomates, oignons rouges, tranche de cheddar, sauces au choix",
+    12
+  ),
+  new Product
+  (
+    "Le Merguez",
+    "Double merguez, tomates, oignons rouges, tranche de cheddar, sauces au choix",
     12
   )
 ];
@@ -180,7 +201,7 @@ const TacosOnlyFormula: Formula = new Formula
 (
   "Tacos Solo",
   null,
-  null,
+  8,
   [TacosCategory, SaucesCategory, SupplementsCategory, PimpCategory]
 );
 
@@ -190,6 +211,22 @@ const TacosMenu1Formula: Formula = new Formula
   TacosOnlyFormula,
   14.5,
   [DrinksCategory]
+);
+
+const TacosMenu2Formula: Formula = new Formula
+(
+    "Menu Tacos + Boisson + Frites",
+    TacosMenu1Formula,
+    17,
+    [DrinksCategory]
+);
+
+const TacosMenu3Formula: Formula = new Formula
+(
+    "Menu Tacos + Boisson + Frites + Dessert",
+    TacosMenu2Formula,
+    20,
+    [DrinksCategory]
 );
 
 @Injectable()
@@ -202,7 +239,12 @@ export class MenuService
 
   getTacosFormulas(): Formula[]
   {
-    return [TacosOnlyFormula, TacosMenu1Formula];
+    return [TacosOnlyFormula, TacosMenu1Formula, TacosMenu2Formula, TacosMenu3Formula];
+  }
+
+  getTacosProducts(): Product[]
+  {
+    return tacosProducts;
   }
   
   getBurgersFormulas(): Formula[]

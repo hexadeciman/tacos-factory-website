@@ -1,0 +1,16 @@
+<ui-view>
+<div class="selection-section">
+    <h4>FORMULE</h4>
+    <ul>
+        <li class="selection-item" *ngFor="let formula of tacosFormulas">
+            <div>
+                <p class="selection-title">{{formula.getName()}}</p>
+                <p class="selection-subtitle">{{formula.getPrice()}} CHF</p>
+            </div>
+            <button (click)="selectTacosFormula(formula)" class="fixed-width-button">
+                SELECTIONNER >
+            </button>
+        </li>
+    </ul>
+</div>
+</ui-view>

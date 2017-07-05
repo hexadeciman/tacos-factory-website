@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MenuService } from '../../menu/menu.service';
+import {Formula} from "../../menu/formula";
 
 @Component({
   selector: 'app-main-selection',
@@ -9,25 +10,30 @@ import { MenuService } from '../../menu/menu.service';
 })
 export class MainSelectionComponent implements OnInit
 {
-  selectedFormulas = {};
-  
-  constructor(private menuService: MenuService)
+  selectedFoodType: string = '';
+
+  constructor()
   {
     
   }
 
   ngOnInit()
   {
+    this.selectFood('Tacos');
+  }
+  
     
-  }
-  
-  displayTacosFormulas(): void
+  getSelectedFood(): string
   {
-    this.selectedFormulas = this.menuService.getTacosFormulas();
+    return this.selectedFoodType;
   }
-  
-  displayBurgersFormulas(): void
+
+  isFoodSelected(foodType: string): boolean
   {
-    this.selectedFormulas = this.menuService.getBurgersFormulas();
+    return (this.selectedFoodType === '' || this.selectedFoodType === foodType);
+  }
+
+  selectFood(foodType: string): void {
+    this.selectedFoodType = foodType;
   }
 }

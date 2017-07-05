@@ -1,22 +1,51 @@
 ul{
-    display: flex;
-    margin: 0;
-    padding: 0
+  margin: 0;
+  padding: 0;
 }
 
-li{
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid rgb(220, 220, 220);
-    border-radius: 3px;
-    margin-right: 5px;
-    padding: 10px;
+p{
+  margin: 0;
+  padding: 0;
 }
 
-button
-{
+h4{
+  font-weight: bold;
+}
+
+.horizontal-list{
+  display: flex;
+  margin: 0;
+  padding: 0
+}
+
+.clickable-food{
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid white;
+  border-radius: 3px;
+  margin-right: 20px;
+  padding: 10px;
   cursor: pointer;
+  opacity: 0.5;
+}
+
+.setOpaque{
+  opacity: 1;
+}
+
+.clickable-food:hover{
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.clickable-food:active{
+  background-color: rgb(246, 246, 246);
+}
+
+.clickable-food-label{
+  font-size: 16px;
+  color: rgb(62, 62, 62);
 }

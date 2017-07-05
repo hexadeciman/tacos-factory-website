@@ -1,0 +1,19 @@
+<div class="selection-section">
+    <h4><a uiSref="tacosSelection1">FORMULE ></a> SELECTION TACOS</h4>
+    <ul>
+        <li class="selection-item" *ngFor="let tacos of tacosProducts">
+            <div>
+                <p class="selection-title">{{tacos.getName()}}</p>
+                <p class="selection-subtitle">{{tacos.getDescription()}}</p>
+            </div>
+            <a uiSref=".tacosSelection3">
+                <button class="fixed-width-button">
+                    SELECTIONNER >
+                </button>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<ui-view>
+</ui-view>
