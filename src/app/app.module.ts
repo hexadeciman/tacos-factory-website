@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MainViewComponent } from './main-view/main-view.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MainSelectionComponent } from './main-view/main-selection/main-selection.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MenuService } from './menu/menu.service';
 import { TacosSelectionComponent } from './main-view/tacos-selection/tacos-selection.component';
 import { UIRouterModule } from "@uirouter/angular";
@@ -28,6 +30,16 @@ let tacosSelection1 = { name: 'tacosSelection1',
                         component: TacosSelectionComponent
                       };
 
+const appRoutes: Routes =
+[
+  { path: 'Command', component: MainViewComponent },
+  { path: '',
+    redirectTo: '/Command',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,10 +48,15 @@ let tacosSelection1 = { name: 'tacosSelection1',
     MainSelectionComponent,
     TacosSelectionComponent,
     TacosSelection2Component,
-    TacosSelection3Component
+    TacosSelection3Component,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     UIRouterModule.forRoot({ states: [ tacosSelection3, tacosSelection2, tacosSelection1 ], useHash: false })
   ],
   providers: [MenuService],

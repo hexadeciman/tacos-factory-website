@@ -110,7 +110,6 @@ export const dessertsProducts =
     4.5
   )
 ];
-//
 
 //
 // -- DRINKS --

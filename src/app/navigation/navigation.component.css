@@ -1,4 +1,25 @@
-.fake-header{
-    width: 1027px;
-    height: 104px;
+#header-container
+{
+  height: 100px;
+  width: 800px;
+}
+
+#header-container nav
+{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#header-logo
+{
+  height: inherit;
+  position: absolute;
+}
+
+.nav-menu-item
+{
+  margin: 40px 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
