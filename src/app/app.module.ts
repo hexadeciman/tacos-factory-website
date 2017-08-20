@@ -30,15 +30,11 @@ let tacosSelection1 = { name: 'tacosSelection1',
                         component: TacosSelectionComponent
                       };
 
-const appRoutes: Routes =
-[
-  { path: 'Command', component: MainViewComponent },
-  { path: '',
-    redirectTo: '/Command',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }
-];
+let command = { name: 'command',
+                url: '/command',
+                component: MainViewComponent
+};
+
 
 @NgModule({
   declarations: [
@@ -53,11 +49,7 @@ const appRoutes: Routes =
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
-    UIRouterModule.forRoot({ states: [ tacosSelection3, tacosSelection2, tacosSelection1 ], useHash: false })
+    UIRouterModule.forRoot({ states: [ tacosSelection3, tacosSelection2, tacosSelection1, command ], useHash: false })
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]
