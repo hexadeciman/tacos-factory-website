@@ -49,7 +49,7 @@ let command = { name: 'command',
   ],
   imports: [
     BrowserModule,
-    UIRouterModule.forRoot({ states: [ tacosSelection3, tacosSelection2, tacosSelection1, command ], useHash: false })
+    UIRouterModule.forRoot({ states: [ tacosSelection3, tacosSelection2, tacosSelection1, command ], useHash: false, otherwise: '/command' })
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]
